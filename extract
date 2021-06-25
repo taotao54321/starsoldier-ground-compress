@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# StarSoldier.nes から地形圧縮データ ground.bin を抽出する。
+
+dd if=StarSoldier.nes of=ground.bin bs=1 skip=22812 count=9930
