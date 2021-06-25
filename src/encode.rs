@@ -20,7 +20,7 @@ pub fn encode(buf: impl AsRef<[u8]>, origin: usize) -> eyre::Result<Vec<u8>> {
 
         // RLE により最小 2Byte まで縮む可能性がある。
         // アドレス参照は 3Byte なので、先に RLE を試す必要がある。
-        // RLE で 3Byte になる場合、計算量的に RLE の方が有利。
+        // RLE で 3Byte になる場合、NES 側の計算量的に RLE の方が有利。
         let rle = encode_row(&row);
         if rle.len() <= 3 {
             encoded.extend_from_slice(&rle);
